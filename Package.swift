@@ -3,11 +3,11 @@
 
 import PackageDescription
 
-let vlcBinary = Target.binaryTarget(name: "VLCKit-all", url: "https://github.com/letrongtriet/vlckit-spm/releases/download/4.0.0a13/VLCKit-all.xcframework.zip", checksum: "")
+let vlcBinary = Target.binaryTarget(name: "VLCKit-all", url: "https://github.com/letrongtriet/vlckit-spm/releases/download/4.0.0a13/VLCKit-all.xcframework.zip", checksum: "6998a9d3556c02e21b1806249e4658d6bf1b370eca7af18669a033847076f71c")
 
 let package = Package(
     name: "vlckit-spm",
-    platforms: [.macOS(.v10_13), .iOS(.v11), .tvOS(.v11)],
+    platforms: [.macOS(.iOS(.v11)],
     products: [
         .library(
             name: "VLCKitSPM",
