@@ -2,10 +2,10 @@
 #
 rm -rf .tmp/ || true
 
-TAG_VERSION="3.6.0"
-IOS_URL="https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
-MACOS_URL="https://download.videolan.org/pub/cocoapods/prod/VLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
-TVOS_URL="https://download.videolan.org/cocoapods/prod/TVVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
+TAG_VERSION="4.0.0a13"
+IOS_URL="https://download.videolan.org/pub/cocoapods/unstable/VLCKit-4.0.0a13-42e57023-0f69f7d4.tar.xz"
+MACOS_URL="https://download.videolan.org/pub/cocoapods/unstable/VLCKit-4.0.0a13-42e57023-0f69f7d4.tar.xz"
+TVOS_URL="https://download.videolan.org/pub/cocoapods/unstable/VLCKit-4.0.0a13-42e57023-0f69f7d4.tar.xz"
 
 mkdir .tmp/
 
@@ -43,7 +43,7 @@ ditto -c -k --sequesterRsrc --keepParent ".tmp/VLCKit-all.xcframework" ".tmp/VLC
 
 #Update package file
 PACKAGE_HASH=$(sha256sum ".tmp/VLCKit-all.xcframework.zip" | awk '{ print $1 }')
-PACKAGE_STRING="Target.binaryTarget(name: \"VLCKit-all\", url: \"https:\/\/github.com\/tylerjonesio\/vlckit-spm\/releases\/download\/$TAG_VERSION\/VLCKit-all.xcframework.zip\", checksum: \"$PACKAGE_HASH\")"
+PACKAGE_STRING="Target.binaryTarget(name: \"VLCKit-all\", url: \"https:\/\/github.com\/letrongtriet\/vlckit-spm\/releases\/download\/$TAG_VERSION\/VLCKit-all.xcframework.zip\", checksum: \"$PACKAGE_HASH\")"
 echo "Changing package definition for xcframework with hash $PACKAGE_HASH"
 sed -i '' -e "s/let vlcBinary.*/let vlcBinary = $PACKAGE_STRING/" Package.swift
 
